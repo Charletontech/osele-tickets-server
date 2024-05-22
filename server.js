@@ -53,12 +53,13 @@ cloudinary.config({
 
 
 const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  port: 3306,
-  database: "osele",
+  host: `${process.env.HOST}`,
+  user: `${process.env.USER}`,
+  password: `${process.env.PASSWORD}`,
+  port: `${process.env.PORT}`,
+  database: `${process.env.DATABASE}`,
 });
+
 
 
 
@@ -286,6 +287,6 @@ app.post("/test", (req, res) => {
   res.status(200).json("Response is ok");
 });
 
-app.listen(5000, () => {
+app.listen(3306, () => {
   console.log("MERN server (node) running on port 5000...");
 });
