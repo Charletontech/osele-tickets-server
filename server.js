@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 // Enable CORS with specific options
 app.use(
   cors({
-    origin: "https://oseletickets.netlify.app/", // Allow requests from a specific origin
+    origin: "https://oseletickets.netlify.app", // Allow requests from a specific origin
     methods: ["GET", "POST"], // Allow specific HTTP methods
     allowedHeaders: ["Content-Type", "Authorization"], // Allow specific headers
   })
