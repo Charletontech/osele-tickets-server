@@ -100,7 +100,7 @@ app.get("/db-init", (req, res) => {
   res.send("Database initialization completed");
 })
 
-app.post("/login", (req, res) => {
+app.get("/", (req, res) => {
   res.send('works')
 })
 
