@@ -25,12 +25,23 @@ app.use(bodyParser.json());
 //   })
 // );
 
-app.use((req, res, next) => {
+app.use(
+  cors({
+    origin: "https://oseletickets.netlify.app", // Allow requests from a specific origin
+    methods: ["GET", "POST", "OPTIONS"], // Allow specific HTTP methods including OPTIONS for preflight
+    allowedHeaders: ["Content-Type", "Authorization"], // Allow specific headers
+    credentials: true // Include credentials if required
+  })
+);
+
+// Middleware to handle preflight requests
+app.options('*', (req, res) => {
   res.header('Access-Control-Allow-Origin', 'https://oseletickets.netlify.app');
-  res.header('Access-Control-Allow-Methods', 'GET,POST');
+  res.header('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  next();
+  res.send();
 });
+
 
 //check every request header for authorization token
 app.use((req, res, next) => {
