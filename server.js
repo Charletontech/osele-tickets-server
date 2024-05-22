@@ -25,11 +25,8 @@ app.use(bodyParser.json());
 //   })
 // );
 
-app.use(
-  cors({
-    origin: "*", // Allow requests from a specific origin
-  })
-);
+app.use(cors({}));
+
 
 
 //check every request header for authorization token
