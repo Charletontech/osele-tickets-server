@@ -11,6 +11,8 @@ require("dotenv").config();
 const mysql = require("mysql");
 const ORM = require("./CharlieDB");
 
+app.use(cors({}));
+
 //middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -25,7 +27,6 @@ app.use(bodyParser.json());
 //   })
 // );
 
-app.use(cors({}));
 
 
 
