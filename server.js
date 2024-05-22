@@ -100,6 +100,9 @@ app.get("/db-init", (req, res) => {
   res.send("Database initialization completed");
 })
 
+app.post("/login", (req, res) => {
+  res.send('works')
+})
 
 app.post("/signup", async (req, res) => {
   const {fName, phone, email, dob, gender, type} = req.body;
