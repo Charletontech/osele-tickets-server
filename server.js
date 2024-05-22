@@ -17,13 +17,13 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 
 // Enable CORS with specific options
-app.use(
-  cors({
-    origin: "https://oseletickets.netlify.app", // Allow requests from a specific origin
-    methods: ["GET", "POST"], // Allow specific HTTP methods
-    allowedHeaders: ["Content-Type", "Authorization"], // Allow specific headers
-  })
-);
+// app.use(
+//   cors({
+//     origin: "http://oseletickets.netlify.app", // Allow requests from a specific origin
+//     methods: ["GET", "POST"], // Allow specific HTTP methods
+//     allowedHeaders: ["Content-Type", "Authorization"], // Allow specific headers
+//   })
+// );
 
 //check every request header for authorization token
 app.use((req, res, next) => {
