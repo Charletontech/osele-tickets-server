@@ -18,41 +18,32 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 
 // Enable CORS with specific options
-// app.use(
-//   cors({
-//     origin: "http://oseletickets.netlify.app", // Allow requests from a specific origin
-//     methods: ["GET", "POST"], // Allow specific HTTP methods
-//     allowedHeaders: ["Content-Type", "Authorization"], // Allow specific headers
-//   })
-// );
-
 app.use(
   cors({
-    origin: "http://localhost:3000", // Allow requests from a specific origin
+    origin: "https://oseletickets.netlify.app", // Allow requests from a specific origin
     methods: ["GET", "POST"], // Allow specific HTTP methods
     allowedHeaders: ["Content-Type", "Authorization"], // Allow specific headers
   })
 );
 
 
-
 //check every request header for authorization token
-// app.use((req, res, next) => {
-//   if (req.headers.authorization) {
-//     var token;
-//     req.headers.authorization.startsWith("Bearer")
-//       ? (token = req.headers.authorization.split(" ")[1])
-//       : (token = req.headers.authorization);
-//     if (token == 123) {
-//       console.log("token correct", token);
-//       next();
-//     } else {
-//       res.status(401).json({ error: "Unauthorized access!" });
-//     }
-//   } else {
-//     res.status(401).json({ error: "Access token absent!" });
-//   }
-// });
+app.use((req, res, next) => {
+  if (req.headers.authorization) {
+    var token;
+    req.headers.authorization.startsWith("Bearer")
+      ? (token = req.headers.authorization.split(" ")[1])
+      : (token = req.headers.authorization);
+    if (token == 123) {
+      console.log("token correct", token);
+      next();
+    } else {
+      res.status(401).json({ error: "Unauthorized access!" });
+    }
+  } else {
+    res.status(401).json({ error: "Access token absent!" });
+  }
+});
 
 
 // Cloudinary configuration
