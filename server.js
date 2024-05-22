@@ -11,7 +11,6 @@ require("dotenv").config();
 const mysql = require("mysql");
 const ORM = require("./CharlieDB");
 
-app.use(cors({}));
 
 //middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -27,6 +26,13 @@ app.use(bodyParser.json());
 //   })
 // );
 
+app.use(
+  cors({
+    origin: "http://localhost:3000", // Allow requests from a specific origin
+    methods: ["GET", "POST"], // Allow specific HTTP methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Allow specific headers
+  })
+);
 
 
 
