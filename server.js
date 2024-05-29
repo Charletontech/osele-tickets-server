@@ -106,7 +106,7 @@ app.get("/db-init", (req, res) => { console.log('object')
     console.log(result);
   });
 
-  res.status(200).json("Database initialization completed");
+  res.status(200).text("Database initialization completed");
 })
 
 
