@@ -100,7 +100,7 @@ app.get("/db-init", (req, res) => { console.log('object')
     console.log(result);
   });
 
-  sql = "CREATE TABLE IF NOT EXISTS ticketssold (id INT AUTO_INCREMENT PRIMARY KEY, eventCode VARCHAR(255), ticketId VARCHAR(255), qty VARCHAR(255), phone VARCHAR(255), eventName VARCHAR(255), price VARCHAR(255), datePurchased VARCHAR(255)) "
+  sql = "CREATE TABLE IF NOT EXISTS ticketssold (id INT AUTO_INCREMENT PRIMARY KEY, eventCode VARCHAR(255), ticketId VARCHAR(255), qty VARCHAR(255), phone VARCHAR(255), eventName VARCHAR(255), price VARCHAR(255), datePurchased VARCHAR(255), flyer VARCHAR(255)) "
   connection.query(sql, (err, result) => {
     if (err) throw err;
     console.log(result);
