@@ -177,7 +177,6 @@ app.post("/signup", async (req, res) => {
     }
   }
 
-  addUserToDatabase(walletNo)
   //logic to add user to DB
   async function addUserToDatabase(walletNo) {
     //get current date
