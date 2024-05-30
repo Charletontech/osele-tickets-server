@@ -284,9 +284,8 @@ app.post('/post-event-request', (req, res) => {
 
 app.post('/checkout', (req, res) => {
   let cart = req.body[0]
-  let user = req.body[1].user;
+  let user = req.body[1];
   let total = req.body[2];
-  console.log(cart[0].flyer)
 
   var sql = ORM.select('balance', 'users', 'phone', user)
   connection.query(sql, (err, result) => {
