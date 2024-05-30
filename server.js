@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 
 //enabling cors
 app.use(cors({
-  origin: "https://oseletickets.netlify.app"
+  origin: "https://oseletickets.com.ng"
 }))
 app.options('*', cors())
 
